@@ -45,7 +45,10 @@ foreach ($users as $user) {
             data: [
             {
                 type: "column",                
-                dataPoints: <?php echo json_encode($myTab, JSON_NUMERIC_CHECK); ?>
+                dataPoints: <?php echo json_encode($myTab, JSON_NUMERIC_CHECK); ?>,
+                click: function(e){
+                        alert(  e.dataSeries.type+ ", données : { nom:" + e.dataPoint.label + ", nombre de repos: "+ e.dataPoint.y + " }" ); // as defined in the array 
+                    }
             }
             ]
         });
