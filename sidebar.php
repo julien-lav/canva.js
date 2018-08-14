@@ -103,8 +103,9 @@
 					</li>
 					-->
 					<!--  /how to  -->
-
+					<!--
 					<li role="separator" class="divider"></li>
+					-->
 			</ul>
 		</div>
 		<!-- /sidebar -->

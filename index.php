@@ -3,9 +3,26 @@
 <?php include 'sidebar.php'; ?>
 <?php include 'content.php'; ?>
 <h1>Home</h1>
-<div id="chartContainer"></div>
+<div id="chartContainer1"></div>
+
+<br />
+<div style="margin: 260px auto;">&nbsp;</div>
+<br />
+
+<!--
+<div id="chartContainer2"></div>
+-->
 
 <?php
+
+
+$myTab2 = array(array("y" => 4181563, "legendText" => "PS 3", "indexLabel" => "PlayStation 3" ),
+            array("y" => 2175498, "legendText" => "Wii", "indexLabel" => "Wii"),
+            array("y" => 3125844, "legendText" => "360", "indexLabel" => "Xbox 360" ),
+            array("y" => 1176121, "legendText" => "DS", "indexLabel" => "Nintendo DS" ),
+            array("y" => 1727161, "legendText" => "PSP", "indexLabel" => "PSP" ),
+            array("y" => 4303364, "legendText" => "3DS", "indexLabel" => "Nintendo 3DS" ),
+            array("y" => 1717786, "legendText" => "Vita", "indexLabel" => "PS Vita" ));
 
 
 $users = ['presley972', 'rizvane', 'masternono75', 'julien-lav'];
@@ -13,34 +30,28 @@ $masters = ['cvilleger', 'lp1dev', 'tdutrion'];
 
 $myTab = [];
 
-echo '</br> &nbsp; ---------- </br> / élève : / </br> ---------- </br>';
-    foreach ($users as $user) {
+
+foreach ($users as $user) {
     ini_set('user_agent','Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2'); 
     $content = file_get_contents("https://api.github.com/users/". $user . "");
     $data = json_decode($content);
     
-    echo $data->login . ' : ';
-    echo $data->public_repos . '</br>';
+    // echo "<h1>" . $data->login . ' : </h1>';
+    // echo $data->public_repos . '</br>';
 
     array_push($myTab, array("y" => $data->public_repos, "label" => $data->login));
-
-    // $myTab = array(
-    //     array("y" => $data->public_repos)
-    // );
 }
-
-echo '</br> &nbsp; ---------- </br> / profs : / </br> ---------- </br>';
 
 ?>
 
 <script type="text/javascript">
 
-    $(function () {
-        var chart = new CanvasJS.Chart("chartContainer", {
+
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
             theme: "theme2",
             animationEnabled: true,
             title: {
-                text: "A Git repository count made with php/canva.js ;)"
+                text: "A Git repository count from D20.1 class made with php/canva.js ;)"
             },
             data: [
             {
@@ -49,8 +60,25 @@ echo '</br> &nbsp; ---------- </br> / profs : / </br> ---------- </br>';
             }
             ]
         });
-        chart.render();
-    });
+
+        var chart2 = new CanvasJS.Chart("chartContainer2",
+            {
+                animationEnabled: true,
+                title: {
+                    text: "Whitch console do you play",
+                },
+                data: [
+                {
+                    type: "pie",
+                    showInLegend: true,
+                    dataPoints: <?php echo json_encode($myTab2); ?>
+                },
+                ]
+            });
+
+        chart2.render();
+        chart1.render();
+
 </script>
 
 <?php include 'footer.php'; ?>
