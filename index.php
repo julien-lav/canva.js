@@ -3,27 +3,15 @@
 <?php include 'sidebar.php'; ?>
 <?php include 'content.php'; ?>
 <h1>Home</h1>
-<div id="chartContainer1"></div>
+<div id="chartContainer"></div>
 
 <br />
 <div style="margin: 260px auto;">&nbsp;</div>
 <br />
 
-<!--
 <div id="chartContainer2"></div>
--->
 
 <?php
-
-
-$myTab2 = array(array("y" => 4181563, "legendText" => "PS 3", "indexLabel" => "PlayStation 3" ),
-            array("y" => 2175498, "legendText" => "Wii", "indexLabel" => "Wii"),
-            array("y" => 3125844, "legendText" => "360", "indexLabel" => "Xbox 360" ),
-            array("y" => 1176121, "legendText" => "DS", "indexLabel" => "Nintendo DS" ),
-            array("y" => 1727161, "legendText" => "PSP", "indexLabel" => "PSP" ),
-            array("y" => 4303364, "legendText" => "3DS", "indexLabel" => "Nintendo 3DS" ),
-            array("y" => 1717786, "legendText" => "Vita", "indexLabel" => "PS Vita" ));
-
 
 $users = ['presley972', 'rizvane', 'masternono75', 'julien-lav'];
 $masters = ['cvilleger', 'lp1dev', 'tdutrion'];
@@ -46,8 +34,9 @@ foreach ($users as $user) {
 
 <script type="text/javascript">
 
+    $(function () {
 
-        var chart1 = new CanvasJS.Chart("chartContainer1", {
+        var chart = new CanvasJS.Chart("chartContainer", {
             theme: "theme2",
             animationEnabled: true,
             title: {
@@ -61,23 +50,9 @@ foreach ($users as $user) {
             ]
         });
 
-        var chart2 = new CanvasJS.Chart("chartContainer2",
-            {
-                animationEnabled: true,
-                title: {
-                    text: "Whitch console do you play",
-                },
-                data: [
-                {
-                    type: "pie",
-                    showInLegend: true,
-                    dataPoints: <?php echo json_encode($myTab2); ?>
-                },
-                ]
-            });
+        chart.render();
+    });
 
-        chart2.render();
-        chart1.render();
 
 </script>
 
