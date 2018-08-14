@@ -13,7 +13,7 @@
 
 <?php
 
-$users = ['presley972', 'rizvane', 'masternono75', 'julien-lav'];
+$users = ['presley972', 'rizvane', 'masternono75', 'FetCh86', 'julien-lav'];
 $masters = ['cvilleger', 'lp1dev', 'tdutrion'];
 
 $myTab = [];
