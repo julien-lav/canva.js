@@ -40,7 +40,7 @@ echo '</br> &nbsp; ---------- </br> / profs : / </br> ---------- </br>';
             theme: "theme2",
             animationEnabled: true,
             title: {
-                text: "Simple Column Chart in PHP"
+                text: "A Git repository count made with php/canva.js ;)"
             },
             data: [
             {
