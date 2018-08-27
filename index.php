@@ -13,7 +13,7 @@
 
 <?php
 
-$users = ['presley972', 'rizvane', 'masternono75', 'FetCh86', 'julien-lav'];
+$users = ['presley972', 'rizvane', 'masternono75', 'FetCh86', 'julien-lav', 'jiangwei4', 'Atrylon'];
 $masters = ['cvilleger', 'lp1dev', 'tdutrion'];
 
 $myTab = [];
@@ -47,7 +47,7 @@ foreach ($users as $user) {
                 type: "column",                
                 dataPoints: <?php echo json_encode($myTab, JSON_NUMERIC_CHECK); ?>,
                 click: function(e){
-                        alert(  e.dataSeries.type+ ", données : { nom:" + e.dataPoint.label + ", nombre de repos: "+ e.dataPoint.y + " }" ); // as defined in the array 
+                        alert(  e.dataSeries.type+ ", données : { nom: " + e.dataPoint.label + ", nombre de repos: "+ e.dataPoint.y + " }" ); // as defined in the array 
                     }
             }
             ]
